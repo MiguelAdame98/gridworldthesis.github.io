@@ -14,7 +14,7 @@
 
 /* firefox handles javascript keyboard codes differently than safari/chrome.
 check which browser and set the keys accordingly*/
-var left_hand_keys = [65, 83, 68, 70];
+var left_hand_keys = [65, 83, 68, 87];
 var right_hand_keys;
 if (navigator.userAgent.indexOf('Firefox') != -1) {
     right_hand_keys = [74, 75, 76, 73];
@@ -35,12 +35,13 @@ var action_mapping_rh = {};
 for (var ii=0; ii<4; ii++) {
     action_mapping_lh[left_hand_keys[ii]] = cardinal_orders[1][ii];
     action_mapping_rh[right_hand_keys[ii]] = cardinal_orders[0][ii];
+    console.log("action mapping lh", action_mapping_lh, "cardinal", left_hand_keys[ii]);
 
 }
 
 // these instruction sets math the hands and are used in the tutorial and in the test phase
-var instruction_set_lh = '<b>a</b>, <b>s</b>, <b>d</b>, and <b>f</b>';
-var instruction_set_rh = '<b>j</b>, <b>k</b>, <b>l</b>, and <b>;</b>';
+var instruction_set_lh = '<b>a</b>, <b>s</b>, <b>d</b>, and <b>w</b>';
+var instruction_set_rh = '<b>j</b>, <b>k</b>, <b>l</b>, and <b>i</b>';
 var instruction_set_lh_red = '<b><span style="color: #FF0000">a</span></b>, ' +
         '<b><span style="color: #FF0000">s</span></b>, <b><span style="color: #FF0000">d</span></b>, and' +
         ' <b><span style="color: #FF0000">f</span></b>';
