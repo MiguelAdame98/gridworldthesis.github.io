@@ -35,7 +35,8 @@ var action_mapping_rh = {};
 for (var ii=0; ii<4; ii++) {
     action_mapping_lh[left_hand_keys[ii]] = cardinal_orders[1][ii];
     action_mapping_rh[right_hand_keys[ii]] = cardinal_orders[0][ii];
-    console.log("action mapping lh", action_mapping_lh, "cardinal", left_hand_keys[ii]);
+    console.log('action mapping lh'+ action_mapping_lh+'cardinal'+left_hand_keys[ii]);
+    console.log('action mapping rh'+ action_mapping_rh+'cardinal'+right_hand_keys[ii]);
 
 }
 
@@ -44,10 +45,10 @@ var instruction_set_lh = '<b>a</b>, <b>s</b>, <b>d</b>, and <b>w</b>';
 var instruction_set_rh = '<b>j</b>, <b>k</b>, <b>l</b>, and <b>i</b>';
 var instruction_set_lh_red = '<b><span style="color: #FF0000">a</span></b>, ' +
         '<b><span style="color: #FF0000">s</span></b>, <b><span style="color: #FF0000">d</span></b>, and' +
-        ' <b><span style="color: #FF0000">f</span></b>';
+        ' <b><span style="color: #FF0000">w</span></b>';
 var instruction_set_rh_red = '<b><span style="color: #FF0000">j</span></b>, ' +
         '<b><span style="color: #FF0000">k</span></b>, <b><span style="color: #FF0000">l</span></b>, and' +
-        ' <b><span style="color: #FF0000">;</span></b>';
+        ' <b><span style="color: #FF0000">i</span></b>';
 
 // flip a coin to assign the mapping to an "a" mapping and a "b" mapping . This randomizes the context assocation with
 // either right hand or left hand.
@@ -57,19 +58,15 @@ var instruction_set_a;
 var instruction_set_b;
 var instruction_set_b_red;
 
-if (Math.random() > .5) {
-	action_mapping_a = action_mapping_lh;
-	action_mapping_b = action_mapping_rh;
-    instruction_set_a = instruction_set_lh;
-    instruction_set_b = instruction_set_rh;
-    instruction_set_b_red = instruction_set_rh_red;
-} else {
-	action_mapping_a = action_mapping_rh;
-	action_mapping_b = action_mapping_lh;
-    instruction_set_a = instruction_set_rh;
-    instruction_set_b = instruction_set_lh;
-    instruction_set_b_red = instruction_set_lh_red;
-}
+
+action_mapping_a = action_mapping_lh;
+action_mapping_b = action_mapping_rh;
+instruction_set_a = instruction_set_lh;
+instruction_set_b = instruction_set_rh;
+instruction_set_b_red = instruction_set_rh_red;
+
+	
+
 
 
 
