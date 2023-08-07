@@ -17,9 +17,9 @@ check which browser and set the keys accordingly*/
 var left_hand_keys = [65, 83, 68, 70];
 var right_hand_keys;
 if (navigator.userAgent.indexOf('Firefox') != -1) {
-    right_hand_keys = [74, 75, 76, 59];
+    right_hand_keys = [74, 75, 76, 73];
 } else {
-    right_hand_keys = [74, 75, 76, 186]
+    right_hand_keys = [74, 75, 76, 73]
 }
 
 
