@@ -35,8 +35,8 @@ var action_mapping_rh = {};
 for (var ii=0; ii<4; ii++) {
     action_mapping_lh[left_hand_keys[ii]] = cardinal_orders[1][ii];
     action_mapping_rh[right_hand_keys[ii]] = cardinal_orders[0][ii];
-    console.log('action mapping lh'+ action_mapping_lh+'cardinal'+left_hand_keys[ii]);
-    console.log('action mapping rh'+action_mapping_rh+'cardinal'+right_hand_keys[ii]);
+    console.log('action mapping lh'+ action_mapping_lh+cardinal_orders[1][ii]+'cardinal'+left_hand_keys[ii]);
+    console.log('action mapping rh'+action_mapping_rh+cardinal_orders[0][ii]+'cardinal'+right_hand_keys[ii]);
 
 }
 
