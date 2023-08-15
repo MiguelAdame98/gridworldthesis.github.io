@@ -11,7 +11,7 @@ var GridWorldPainter = function (context) {
 	this.SUBACTION_DISTANCE = .2;
 	this.SUBACTION_COLLISION_PROPORTION = .7;
 	this.SUBACTION_COLLISION_DISTANCE = .7;
-	this.REWARD_DISPLAY_TIME = 800;
+	this.REWARD_DISPLAY_TIME = 1200;
 
 	this.gridworld = context.gridworld;
 	this.animationTimeouts = [];

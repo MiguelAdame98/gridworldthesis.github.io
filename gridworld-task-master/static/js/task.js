@@ -102,7 +102,8 @@ var Tutorial = function() {
                 $(document).unbind('keydown.gridworld');
                 psiTurk.doInstructions(
                     instructionsExperiment,
-                    function() {current_view = new InstructionsQuestionnaire(); } // function executes following instructions.
+                    //function() {current_view= new InstructionsQuestionnaire();}
+                    function() {current_view = new RewardFeedback_experiment(); } // function executes following instructions.
                 );
             }
             else {
