@@ -32,12 +32,12 @@ var instructionsTutorial = [
     "instructions/instruct-tutorial2.html"
 ];
 
-var instructionsExperiment = [
-    "instructions/instruct-endtutorial.html",
-    "instructions/instruct-experiment1.html",
-    "instructions/instruct-experiment2.html",
-    "instructions/instruct-experiment3.html"
-];
+//var instructionsExperiment = [
+    //"instructions/instruct-endtutorial.html",
+    //"instructions/instruct-experiment1.html",
+    //"instructions/instruct-experiment2.html",
+    //"instructions/instruct-experiment3.html"
+//];
 
 var instructionsExperiment_repeat = [
     "instructions/instruct-experiment1.html",
@@ -100,11 +100,12 @@ var Tutorial = function() {
 
                 $(document).unbind('keydown.continue');
                 $(document).unbind('keydown.gridworld');
-                psiTurk.doInstructions(
-                    instructionsExperiment,
+                current_view = new RewardFeedback_experiment();
+                //psiTurk.doInstructions(
+                    //instructionsExperiment,
                     //function() {current_view= new InstructionsQuestionnaire();}
-                    function() {current_view = new RewardFeedback_experiment(); } // function executes following instructions.
-                );
+                    //function() {current_view = new RewardFeedback_experiment(); } // function executes following instructions.
+                //);
             }
             else {
                 //this.stateCheck = true;
