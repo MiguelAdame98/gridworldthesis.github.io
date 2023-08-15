@@ -289,7 +289,7 @@ var generate_demo8 = function(response_handler) {
 	demo.colors = [tutorial_color_2]; // need some way to set the colors of the agent differently.
 	return demo;
 };
-var demo8 = generate_demo8(rh_demo_reachableGoal_2);
+var demo8 = generate_demo8(rh_demo_reachableGoal_1);
 
 var generate_demo9 = function(response_handler) {
 	var demo = new DemoTrial(
