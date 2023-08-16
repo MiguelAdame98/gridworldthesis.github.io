@@ -45,7 +45,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
         console.log('recolectora'+all_goals);
         for (var agent in this.state) {
             if (this.state.hasOwnProperty(agent)) {
-                if (this.mdp.inGoal(nextState[agent]['location'], agent)&&!()) {
+                if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
 
                     goal_value += this.mdp.getStateValue(nextState[agent]['location'], agent);
                     all_goals++;
