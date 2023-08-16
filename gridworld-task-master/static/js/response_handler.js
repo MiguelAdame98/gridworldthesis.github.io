@@ -37,16 +37,18 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
         /* Determine the Rewards */
         //var reset_key_time = this.painter.ACTION_ANIMATION_TIME;
-        console.log("lenght"+this.gridworld.goals.length);
+        console.log("lenght"+this.gridworld.goals);
         console.log('lenght'+this.gridworld.goals.length);
         var goal_value=0;
         var all_goals=0;
+        var goals_reviewed=[];
         console.log('recolectora'+all_goals);
         for (var agent in this.state) {
             if (this.state.hasOwnProperty(agent)) {
-                if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
+                if (this.mdp.inGoal(nextState[agent]['location'], agent)&&!()) {
 
                     goal_value += this.mdp.getStateValue(nextState[agent]['location'], agent);
+                    all_goals++;
                     var display;
 
                     move_to_next_trial = true;
