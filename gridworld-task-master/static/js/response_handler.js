@@ -37,8 +37,8 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
         /* Determine the Rewards */
         //var reset_key_time = this.painter.ACTION_ANIMATION_TIME;
-        console.log(JSON.stringify("length1"+this.gridworld.goals.location));
-        console.log(JSON.stringify('length2'+this.gridworld.goals['location']));
+        console.log("length1"+this.gridworld.goals.location);
+        console.log('length2'+this.gridworld.goals[0]['location']);
         var goal_value=0;
         var all_goals=0;
         var goals_reviewed=[];
