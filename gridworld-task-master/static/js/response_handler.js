@@ -63,7 +63,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                             '<I><span style="color #707070">Press enter to continue</span></I>';
 
                     } else {
-                        this.restart = true;
+                        //this.restart = true;
                         // reward_label = 'Try Again!';
                         display = "Oops! That's not the right goal!<br><br> " +
                             '<I><span style="color #707070">Press enter to try again</span></I>';
