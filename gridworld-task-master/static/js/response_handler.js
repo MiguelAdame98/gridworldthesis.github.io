@@ -12,6 +12,7 @@ wait_before_actions_time = 0;
 
 var demo_responseHandlerGenerator;
 demo_responseHandlerGenerator = function (action_mapping) {
+    var all_goals=0;
 
     return function (event) {
         // Use the Action map to translate the action correctly.
@@ -41,7 +42,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
         
         
         var goal_value=0;
-        var all_goals=0;
+        
         console.log(all_goals);
         for (var agent in this.state) {
             if (this.state.hasOwnProperty(agent)) {
