@@ -38,6 +38,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
         /* Determine the Rewards */
         //var reset_key_time = this.painter.ACTION_ANIMATION_TIME;
         console.log("length"+this.gridworld.goals[0].location);
+        console.log(all_goals);
         
         var goal_value=0;
         var all_goals=0;
