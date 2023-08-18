@@ -113,7 +113,8 @@ demo_responseHandlerGenerator = function (action_mapping) {
             });
 
         var reset_key_handler;
-        if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
+        if(all_goals>=this.gridworld.goals.length){   
+        //if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
             reset_key_handler = (function () {
                 return function () {
                     $(document).bind('keydown.gridworld', function (event) {});
