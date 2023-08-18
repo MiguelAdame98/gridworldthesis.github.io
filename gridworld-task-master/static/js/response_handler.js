@@ -38,17 +38,18 @@ demo_responseHandlerGenerator = function (action_mapping) {
         /* Determine the Rewards */
         //var reset_key_time = this.painter.ACTION_ANIMATION_TIME;
         console.log("length"+this.gridworld.goals[0].location);
-        console.log(all_goals);
+        
         
         var goal_value=0;
         var all_goals=0;
-        
+        console.log(all_goals);
         for (var agent in this.state) {
             if (this.state.hasOwnProperty(agent)) {
                 if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
 
                     goal_value += this.mdp.getStateValue(nextState[agent]['location'], agent);
                     all_goals++;
+                    console.log(all_goals);
                     var display;
                     if(all_goals>=this.gridworld.goals.length){
                         move_to_next_trial = true;
@@ -96,7 +97,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                         })(th)
                     );
 
-                    console.log("check end");
+                    //console.log("check end");
                 }
             }
         }
