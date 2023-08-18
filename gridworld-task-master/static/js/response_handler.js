@@ -9,10 +9,10 @@
 var wait_before_actions_time;
 var allow_response;
 wait_before_actions_time = 0;
-
+var all_goals=0;
 var demo_responseHandlerGenerator;
 demo_responseHandlerGenerator = function (action_mapping) {
-    var all_goals=0;
+    
 
     return function (event) {
         // Use the Action map to translate the action correctly.
