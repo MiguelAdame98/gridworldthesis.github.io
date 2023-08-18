@@ -114,7 +114,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
         var reset_key_handler;
         if(all_goals>=this.gridworld.goals.length){ 
-            console.log('eatshit')  
+            console.log('eatshit');  
         //if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
             reset_key_handler = (function () {
                 return function () {
