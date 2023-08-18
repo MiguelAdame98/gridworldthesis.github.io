@@ -9,13 +9,13 @@
 var wait_before_actions_time;
 var allow_response;
 wait_before_actions_time = 0;
-
+var all_goals=0;
 var demo_responseHandlerGenerator;
 demo_responseHandlerGenerator = function (action_mapping) {
     
 
     return function (event) {
-        var all_goals=0;
+        
         // Use the Action map to translate the action correctly.
         var response;
         response = action_mapping[event.which];
