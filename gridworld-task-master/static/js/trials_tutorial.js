@@ -87,7 +87,7 @@ var demo0 = new DemoTrial(
 	function (event) {move_to_next_trial = true} // this needs to be a function of event
 	,
 	//initial text, display id, message id
-	'See the circle in the center?<br> You control the circle and can move it to different places. ' +
+	'See the circle in the center?<br> You control the circle and can move it to different places.With w,a,s,d ' +
 	'<br><I><span style="color: #707070"> Press enter to continue</span></I>',
 	'#task_display',
 	'#trial_text'
@@ -98,7 +98,8 @@ var demo1 = new DemoTrial(
 	{
 		height : 5,
 		width : 5,
-		walls : [],
+		walls : [[1,2,'down'],[1,1,'up'],
+		[2, 2, 'down'], [2, 1, 'up']],
 		goals : [],
 		tile_size: demo_tile_size,
 		agents : [{name : 'agent1'}]
@@ -110,7 +111,7 @@ var demo1 = new DemoTrial(
 	rh_demo_noReachableGoal_1
 	,
 	//initial text, display id, message id
-	'The ' + instruction_set_a + ' keys move the circle around maze.<br> Try moving around! <br><br> ',
+	'The ' + instruction_set_a + ' keys move the circle around maze.<br> Try moving around! Be careful there are walls <br><br> ',
 	'#task_display',
 	'#trial_text'
 );
@@ -122,18 +123,19 @@ var demo2 = new DemoTrial(
 		width : 5,
 		walls : [],
 		tile_size: demo_tile_size,
-		goals : [{agent:'agent1', location: [0,0], label: 'Goal', display_label: 'Goal', value: 1}],
+		goals : [{agent:'agent1', location: [4,4], label: 'Goal', display_label: 'Goal', value: 1}],
 		agents : [{name : 'agent1'}]
 	},
 	//initial state
 	{
-		agent1 : {name : 'agent1', location : [2,2], type : 'agent'}
+		agent1 : {name : 'agent1', location : [0,0], type : 'agent'}
 	},
 	rh_demo_reachableGoal_1
 	,
 	//initial text, display id, message id
 	'The colored tile is your goal.<br> Try going to your goal! <br>'
-		+' <span style="color: #707070">Use the ' + instruction_set_a + ' keys to move.</span>',
+		//+' <span style="color: #707070">Use the ' + instruction_set_a + ' keys to move.</span>',
+		+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
 	'#task_display',
 	'#trial_text'
 );
@@ -162,6 +164,7 @@ var demo3 = new DemoTrial(
 	'#task_display',
 	'#trial_text'
 );
+
 
 
 var generate_demo5 = function(response_handler) {
@@ -350,5 +353,5 @@ var endDemo = new DemoTrial(
 );
 
 
-var demo_trials = [demo8, demo9, endDemo];
+var demo_trials = [demo0,demo1,demo2,demo8, demo9, endDemo];
 // var demo_trials = [demo8, endDemo];
