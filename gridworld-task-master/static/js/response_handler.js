@@ -48,8 +48,6 @@ demo_responseHandlerGenerator = function (action_mapping) {
         for (var agent in this.state) {
             if (this.state.hasOwnProperty(agent)) {
                 if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
-
-
                     goal_value += this.mdp.getStateValue(nextState[agent]['location'], agent);
                     all_goals++;
                     console.log(all_goals);
@@ -57,6 +55,11 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     if(all_goals>=this.gridworld.goals.length){
                         move_to_next_trial = true;
                     }
+                    goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
+                    goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
+                    this.total_points += goal_value;
+                    console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
+
                     // var reward_label;
                     //if (goal_value > 0) {
                         // reward_label = 'Great!';
@@ -72,10 +75,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
                     // if agent is in goal state, celebrate.//get the value, identity and on-screen label of the goal
                     
-                    goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
-                    goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
-                    this.total_points += goal_value;
-                    console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
+                    
 
                 // if agent is in goal state, celebrate.
                     var celebrateGoal = (function (painter, location, agent, points, goal_display_label) {
@@ -89,22 +89,22 @@ demo_responseHandlerGenerator = function (action_mapping) {
                             }
 
 
-                        var text_display = 'Goal: <span style="font-weight: bold"><span style="font-size:150%">' +
-                            '<span style="color:' + painter.AGENT_COLORS['agent1'] +'">' +
-                            goal_display_label +'</span></span></span><br>Points won: <span style="color:' +
-                            painter.AGENT_COLORS['agent1'] +'"><span style="font-size:150%">' +
-                            '<span style="font-weight: bold">' + String(points) + '</span></span></span><br> ' +
-                            '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
-                            '</span></span>';
+                            var text_display = 'Goal: <span style="font-weight: bold"><span style="font-size:150%">' +
+                                '<span style="color:' + painter.AGENT_COLORS['agent1'] +'">' +
+                                goal_display_label +'</span></span></span><br>Points won: <span style="color:' +
+                                painter.AGENT_COLORS['agent1'] +'"><span style="font-size:150%">' +
+                                '<span style="font-weight: bold">' + String(points) + '</span></span></span><br> ' +
+                                '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
+                                '</span></span>';
 
-                        $('#trial_text').html(text_display);
+                            $('#trial_text').html(text_display);
                         }
                     })(this.painter, nextState[agent]['location'], agent, goal_value, goal_display_label);
 
 
                     var th;
                     th = setTimeout(celebrateGoal, this.painter.ACTION_ANIMATION_TIME);
-                    $.subscribe('killtimers', (function (th) {
+                        $.subscribe('killtimers', (function (th) {
                             return function () {
                                 clearTimeout(th)
                             }
