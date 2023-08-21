@@ -391,7 +391,7 @@ var generate_demo10 = function(response_handler) {
 			height : 12,
 			width : 12,
 			walls : [],
-			goals : [
+			goals :[
 				{agent:'agent1', location: [2,6], label: 'A', display_label: 'A', value: 27},
 				{agent:'agent1', location: [4,8], label: 'G', display_label: 'G', value: 20},
 				{agent:'agent1', location: [8,2], label: 'U', display_label: 'U', value: 6},
@@ -424,8 +424,8 @@ var generate_demo11 = function(response_handler) {
 	var demo = new DemoTrial(
 		//gridworld
 		{
-			height : 12,
-			width : 12,
+			height : 6,
+			width : 6,
 			walls: [[0, 2, 'up'], [0, 3, 'down'], [2, 2, 'up'], [2, 3, 'down'],[3,2,'up'],[3,3,'down'],
 				[5, 2, 'up'], [5, 3, 'down'],[2, 2, 'right'], [3, 2, 'left'],[2, 3, 'right'], [3, 3, 'left'],[2, 5, 'right'], [3, 5, 'left'],[2, 0, 'right'], [3, 0, 'left']],
 			
@@ -482,5 +482,5 @@ var endDemo = new DemoTrial(
 );
 
 
-var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo7,demo8, demo9,demo10,demo11, endDemo];
+var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo7,demo8,demo9,demo10,demo11,endDemo];
 // var demo_trials = [demo8, endDemo];

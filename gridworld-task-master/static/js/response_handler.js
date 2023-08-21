@@ -73,22 +73,35 @@ demo_responseHandlerGenerator = function (action_mapping) {
                             '<I><span style="color #707070">Press enter to try again</span></I>';
                     }
 
-                    // if agent is in goal state, celebrate.
-                    var celebrateGoal = (function (painter, location, agent) {
-                        return function () {
-                            if (goal_value) {
-                                painter.showReward(location, agent, 'Great!');
-                            } else {
-                                painter.showLoss(location, agent, 'Try Again!')
-                            };
+                    // if agent is in goal state, celebrate.//get the value, identity and on-screen label of the goal
+                goal_value = this.mdp.getStateValue(nextState[agent]['location'], agent);
+                goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
+                goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
+                this.total_points += goal_value;
+                console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
 
-                            if (typeof painter.points === 'undefined') {
-                                painter.points = {'agent1': 0}
-                            }
-                            painter.points[agent]++;
-                            $('#trial_text').html(display);
+                // if agent is in goal state, celebrate.
+                var celebrateGoal = (function (painter, location, agent, points, goal_display_label) {
+                    return function () {
+                        if (goal_value > 0) {
+                            painter.showReward(location, agent, '+'.concat(String(points)));
+                        } else {
+                            painter.showLoss(location, agent, ''.concat(String(points)));
+
                         }
-                    })(this.painter, nextState[agent]['location'], agent);
+
+
+                        var text_display = 'Goal: <span style="font-weight: bold"><span style="font-size:150%">' +
+                            '<span style="color:' + painter.AGENT_COLORS['agent1'] +'">' +
+                            goal_display_label +'</span></span></span><br>Points won: <span style="color:' +
+                            painter.AGENT_COLORS['agent1'] +'"><span style="font-size:150%">' +
+                            '<span style="font-weight: bold">' + String(points) + '</span></span></span><br> ' +
+                            '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
+                            '</span></span>';
+
+                        $('#trial_text').html(text_display);
+                    }
+                })(this.painter, nextState[agent]['location'], agent, goal_value, goal_display_label);
 
                     var th;
                     th = setTimeout(celebrateGoal, this.painter.ACTION_ANIMATION_TIME);
