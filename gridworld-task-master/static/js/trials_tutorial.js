@@ -258,7 +258,7 @@ var generate_demo6 = function(response_handler) {
 		},
 		//initial state
 		{
-			agent1: {name: 'agent1', location: [3, 3], type: 'agent'}
+			agent1: {name: 'agent1', location: [0, 0], type: 'agent'}
 		},
 		response_handler
 		,
@@ -351,33 +351,35 @@ var generate_demo9 = function(response_handler) {
 	var demo = new DemoTrial(
 		//gridworld
 		{
-			height: 5,
-			width: 5,
-			walls: [[1,3,'right'],[2, 3,'left'],
-				[2, 2, 'down'], [2, 1, 'up']],
+			height: 6,
+			width: 6,
+			//walls: [],
+			walls: [[0, 2, 'up'], [0, 3, 'down'], [2, 2, 'up'], [2, 3, 'down'],[3,2,'up'],[3,3,'down'],
+				[5, 2, 'up'], [5, 3, 'down'],[2, 2, 'right'], [3, 2, 'left'],[2, 3, 'right'], [3, 3, 'left'],[2, 5, 'right'], [3, 5, 'left'],[2, 0, 'right'], [3, 0, 'left']],
 			tile_size: demo_tile_size,
 			goals: [
-				{agent:'agent1', location: [1,1], label: 'Goal', display_label: 'X', value: 1},
-				{agent:'agent1', location: [1,3], label: 'Goal', display_label: 'Z', value: 0},
-				{agent:'agent1', location: [3,0], label: 'Goal', display_label: 'Y', value: 0}
+				{agent:'agent1', location: [1,1],label: 'Goal', display_label: '',value: 25},
+				{agent:'agent1', location: [4,4],label: 'Goal', display_label: '',value: 20},
+				{agent:'agent1', location: [4,1],label: 'Goal', display_label: '',value: 15},
+				{agent:'agent1', location: [1,4],label: 'Goal', display_label: '',value: 0}
+
 			],
 			agents: [{name: 'agent1'}]
 		},
 		//initial state
 		{
-			agent1: {name: 'agent1', location: [3, 3], type: 'agent'}
+			agent1: {name: 'agent1', location: [5, 5], type: 'agent'}
 		},
 		response_handler
 		,
 		//initial text, display id, message id
-		'Each color has a different goal. <br>This time, <b>X</b> marks the spot!<br>' +
-		'<span style="color: #707070">Use the ' + instruction_set_a + ' keys to move.</span>',
+		'Sometimes, the space wil change togther with the rewards <br><br>'
+			+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
 		'#task_display',
 		'#trial_text'
-		//demo.
 	);
 	demo.draw_goals=true;
-	demo.colors = [tutorial_color_1]; // need some way to set the colors of the agent differently.
+	demo.colors = [tutorial_color_2]; // need some way to set the colors of the agent differently.
 	return demo;
 };
 var demo9 = generate_demo9(rh_demo_reachableGoal_1);
