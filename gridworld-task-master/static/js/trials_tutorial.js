@@ -429,7 +429,7 @@ var generate_demo11 = function(response_handler) {
 			walls: [[0, 2, 'up'], [0, 3, 'down'], [2, 2, 'up'], [2, 3, 'down'],[3,2,'up'],[3,3,'down'],
 				[5, 2, 'up'], [5, 3, 'down'],[2, 2, 'right'], [3, 2, 'left'],[2, 3, 'right'], [3, 3, 'left'],[2, 5, 'right'], [3, 5, 'left'],[2, 0, 'right'], [3, 0, 'left']],
 			
-			goals :   [
+			goals :[
 				{agent:'agent1', location: [1,3], label: '1', display_label: '1', value: 7},
 				{agent:'agent1', location: [2,4], label: '4', display_label: '4', value: 20},
 				{agent:'agent1', location: [4,1], label: '7', display_label: '7', value: 26},
@@ -482,5 +482,5 @@ var endDemo = new DemoTrial(
 );
 
 
-var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo7,demo8, demo9,demo10,demo11 endDemo];
+var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo7,demo8, demo9,demo10,demo11, endDemo];
 // var demo_trials = [demo8, endDemo];
