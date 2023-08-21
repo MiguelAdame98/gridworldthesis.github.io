@@ -56,51 +56,42 @@ demo_responseHandlerGenerator = function (action_mapping) {
                         move_to_next_trial = true;
                     }
                     //goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
-                    goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
-                    this.total_points += goal_value;
-                    console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
+                    //goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
+                    //this.total_points += goal_value;
+                    //console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
 
                     // var reward_label;
-                    //if (goal_value > 0) {
+                    if (goal_value > 0) {
                         // reward_label = 'Great!';
-                        //display = 'You got to the right goal!<br><br> ' +
+                        display = 'You got to the goal!<br><br> ' + String(points) + '</span></span></span><br> ' +
+                        '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
+                        '</span></span>';
                             //'<I><span style="color #707070">Press enter to continue</span></I>';
 
-                    //} else {
+                    } else {
                         //this.restart = true;
                         // reward_label = 'Try Again!';
-                        //display = "Oops! That's not the right goal!<br><br> " +
+                        display = "Oops!<br><br> "+ String(points) + '</span></span></span><br> ' +
+                        '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
+                        '</span></span>';
+
                             //'<I><span style="color #707070">Press enter to try again</span></I>';
-                    //}
-
-                    // if agent is in goal state, celebrate.//get the value, identity and on-screen label of the goal
-                    
-                    
-
-                // if agent is in goal state, celebrate.
-                    var celebrateGoal = (function (painter, location, agent, points) {
-
+                    }
+                    var celebrateGoal = (function (painter, location, agent) {
                         return function () {
-                            if (goal_value > 0) {
-                                painter.showReward(location, agent, '+'.concat(String(points)));
+                            if (goal_value) {
+                                painter.showReward(location, agent, 'Great!');
                             } else {
-                                painter.showLoss(location, agent, ''.concat(String(points)));
+                                painter.showLoss(location, agent, 'Try Again!')
+                            };
 
+                            if (typeof painter.points === 'undefined') {
+                                painter.points = {'agent1': 0}
                             }
-
-
-                            var text_display = 'Goal: <span style="font-weight: bold"><span style="font-size:150%">' +
-                                '<span style="color:' + painter.AGENT_COLORS['agent1'] +'">' +
-                                 '</span></span></span><br>Points won: <span style="color:' +
-                                painter.AGENT_COLORS['agent1'] +'"><span style="font-size:150%">' +
-                                '<span style="font-weight: bold">' + String(points) + '</span></span></span><br> ' +
-                                '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
-                                '</span></span>';
-
-                            $('#trial_text').html(text_display);
+                            painter.points[agent]++;
+                            $('#trial_text').html(display);
                         }
-                    })(this.painter, nextState[agent]['location'], agent, goal_value);
-
+                    })(this.painter, nextState[agent]['location'], agent);
 
                     var th;
                     th = setTimeout(celebrateGoal, this.painter.ACTION_ANIMATION_TIME);
@@ -113,14 +104,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
                     //console.log("check end");
                 }
-            } else {
-                var text_display = 'Which goal is the best?<span style="font-size:150%"></span><br>' +
-                    '<span style="font-size:150%"><span style="font-weight: bold"> </span></span><br> ' +
-                    '<span style="color: #707070"><span style="font-style: italic">Use the <b>a</b>, <b>s</b>,' +
-                    ' <b>d</b>, <b>f</b>, and <b>j</b>, <b>k</b>, <b>l</b>, <b>;</b> keys to move.</span></span>';
-
-                $('#trial_text').html(text_display);
-            }
+            } 
         }
 
         // Record in psiturk
