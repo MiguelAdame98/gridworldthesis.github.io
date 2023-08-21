@@ -65,7 +65,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     //if (goal_value > 0) {
                         // reward_label = 'Great!';
                         //display = 'You got to the right goal!<br><br> ' +
-                            '<I><span style="color #707070">Press enter to continue</span></I>';
+                            //'<I><span style="color #707070">Press enter to continue</span></I>';
 
                     //} else {
                         //this.restart = true;
