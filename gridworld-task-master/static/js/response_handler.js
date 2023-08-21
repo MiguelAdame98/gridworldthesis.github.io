@@ -50,6 +50,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                 if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
                     goal_value += this.mdp.getStateValue(nextState[agent]['location'], agent);
                     all_goals++;
+                    let points=this.mdp.getStateValue(nextState[agent]['location'], agent);
                     console.log(all_goals);
                     var display;
                     if(all_goals>=this.gridworld.goals.length){
@@ -80,9 +81,9 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     var celebrateGoal = (function (painter, location, agent) {
                         return function () {
                             if (goal_value) {
-                                painter.showReward(location, agent, 'Great!');
+                                painter.showReward(location, agent, '+'.concat(String(points)));
                             } else {
-                                painter.showLoss(location, agent, 'Try Again!')
+                                painter.showLoss(location, agent, ''.concat(String(points)));
                             };
 
                             if (typeof painter.points === 'undefined') {
