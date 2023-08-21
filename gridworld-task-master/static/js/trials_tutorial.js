@@ -177,7 +177,7 @@ var generate_demo4 = function(response_handler) {
 			goals : [
 				{agent:'agent1', location: [1,3], label: 'A', display_label: 'A', value: 27},
 				{agent:'agent1', location: [2,4], label: 'G', display_label: 'G', value: 20},
-				{agent:'agent1', location: [3,2], label: 'U', display_label: 'U', value: 6}
+				{agent:'agent1', location: [4,1], label: 'U', display_label: 'U', value: 6}
 
 			],
 			tile_size: demo_tile_size,
@@ -248,10 +248,10 @@ var generate_demo6 = function(response_handler) {
 				[5, 2, 'up'], [5, 3, 'down'],[2, 2, 'right'], [3, 2, 'left'],[2, 3, 'right'], [3, 3, 'left'],[2, 5, 'right'], [3, 5, 'left'],[2, 0, 'right'], [3, 0, 'left']],
 			tile_size: demo_tile_size,
 			goals: [
-				{agent:'agent1', location: [1,1],value: 25},
-				{agent:'agent1', location: [4,4],value: 20},
-				{agent:'agent1', location: [4,1],value: 15},
-				{agent:'agent1', location: [1,4],value: 0}
+				{agent:'agent1', location: [1,1],label: 'Goal', display_label: '',value: 25},
+				{agent:'agent1', location: [4,4],label: 'Goal', display_label: '',value: 20},
+				{agent:'agent1', location: [4,1],label: 'Goal', display_label: '',value: 15},
+				{agent:'agent1', location: [1,4],label: 'Goal', display_label: '',value: 0}
 
 			],
 			agents: [{name: 'agent1'}]
@@ -263,8 +263,8 @@ var generate_demo6 = function(response_handler) {
 		response_handler
 		,
 		//initial text, display id, message id
-		'Look! The goal has moved again!<br> Go to the goal<br>'
-			+' <span style="color: #707070">Use the ' + instruction_set_a + ' keys to move.</span>',
+		'Sometimes, the space wil change togther with the rewards <br><br>'
+			+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
 		'#task_display',
 		'#trial_text'
 	);
@@ -273,6 +273,40 @@ var generate_demo6 = function(response_handler) {
 };
 
 var demo6 = generate_demo6(rh_demo_reachableGoal_1);
+
+var generate_demo7 = function(response_handler) {
+	var demo = new DemoTrial(
+		//gridworld
+		{
+			height : 12,
+			width : 12,
+			walls : [],
+			goals : [
+				{agent:'agent1', location: [2,6], label: 'A', display_label: 'A', value: 27},
+				{agent:'agent1', location: [4,8], label: 'G', display_label: 'G', value: 20},
+				{agent:'agent1', location: [8,2], label: 'U', display_label: 'U', value: 6}
+
+			],
+			tile_size: demo_tile_size,
+			agents : [{name : 'agent1'}]
+		},
+		//initial state
+		{
+			agent1 : {name : 'agent1', location : [2,2], type : 'agent'}
+		},
+		response_handler
+		,
+		//initial text, display id, message id
+		'Sometimes, the goals will say something important and have different rewards! <br><br>'
+			+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
+		'#task_display',
+		'#trial_text'
+	);
+
+	demo.colors = [tutorial_color_2]; // need some way to set the colors of the agent differently.
+	return demo;
+};
+var demo7 = generate_demo7(rh_demo_reachableGoal_1);
 
 var generate_demo8 = function(response_handler) {
 	var demo = new DemoTrial(
@@ -369,5 +403,5 @@ var endDemo = new DemoTrial(
 );
 
 
-var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo8, demo9, endDemo];
+var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo7,demo8, demo9, endDemo];
 // var demo_trials = [demo8, endDemo];
