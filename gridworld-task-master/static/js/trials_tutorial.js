@@ -244,7 +244,7 @@ var generate_demo6 = function(response_handler) {
 			height: 6,
 			width: 6,
 			//walls: [],
-			walls: [[0, 0, 'right'], [1, 0, 'left'], [0, 1, 'right'], [1, 1, 'left'],[0,2,'right'],[1,2,'left'],
+			walls: [[0, 2, 'up'], [0, 3, 'down'], [2, 2, 'up'], [2, 3, 'down'],[3,2,'up'],[3,3,'down'],
 				[2, 2, 'down'], [2, 1, 'up']],
 			tile_size: demo_tile_size,
 			goals: [{agent: 'agent1', location: [4, 0], label: 'Goal', display_label: 'Goal', value: 1}],
