@@ -247,7 +247,13 @@ var generate_demo6 = function(response_handler) {
 			walls: [[0, 2, 'up'], [0, 3, 'down'], [2, 2, 'up'], [2, 3, 'down'],[3,2,'up'],[3,3,'down'],
 				[5, 2, 'up'], [5, 3, 'down'],[2, 2, 'right'], [3, 2, 'left'],[2, 3, 'right'], [3, 3, 'left'],[2, 5, 'right'], [3, 5, 'left'],[2, 0, 'right'], [3, 0, 'left']],
 			tile_size: demo_tile_size,
-			goals: [{agent: 'agent1', location: [4, 0], label: 'Goal', display_label: 'Goal', value: 1}],
+			goals: [
+				{agent:'agent1', location: [1,1],value: 25},
+				{agent:'agent1', location: [4,4],value: 20},
+				{agent:'agent1', location: [4,1],value: 15},
+				{agent:'agent1', location: [1,4],value: 0}
+
+			],
 			agents: [{name: 'agent1'}]
 		},
 		//initial state
