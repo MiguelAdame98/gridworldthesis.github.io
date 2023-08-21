@@ -57,10 +57,6 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     if(all_goals>=this.gridworld.goals.length){
                         move_to_next_trial = true;
                     }
-
-                    
-
-
                     // var reward_label;
                     //if (goal_value > 0) {
                         // reward_label = 'Great!';
