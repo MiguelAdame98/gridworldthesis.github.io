@@ -321,8 +321,8 @@ var generate_demo8 = function(response_handler)  {
 				{agent:'agent1', location: [1,3], label: '1', display_label: '1', value: 7},
 				{agent:'agent1', location: [2,4], label: '4', display_label: '4', value: 20},
 				{agent:'agent1', location: [4,1], label: '7', display_label: '7', value: 26},
-				{agent:'agent1', location: [0,1], label: '5', display_label: '1', value: 22},
-				{agent:'agent1', location: [2,5], label: '2', display_label: '4', value: 10},
+				{agent:'agent1', location: [0,1], label: '5', display_label: '5', value: 22},
+				{agent:'agent1', location: [2,5], label: '2', display_label: '2', value: 10},
 				{agent:'agent1', location: [4,5], label: '9', display_label: '9', value: 30}
 
 			],

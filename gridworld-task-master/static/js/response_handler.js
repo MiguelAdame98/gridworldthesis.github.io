@@ -49,6 +49,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
             if (this.state.hasOwnProperty(agent)) {
                 if (this.mdp.inGoal(nextState[agent]['location'], agent)) {
 
+
                     goal_value += this.mdp.getStateValue(nextState[agent]['location'], agent);
                     all_goals++;
                     console.log(all_goals);
@@ -61,34 +62,35 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
 
                     // var reward_label;
-                    if (goal_value > 0) {
+                    //if (goal_value > 0) {
                         // reward_label = 'Great!';
-                        display = 'You got to the right goal!<br><br> ' +
+                        //display = 'You got to the right goal!<br><br> ' +
                             '<I><span style="color #707070">Press enter to continue</span></I>';
 
-                    } else {
+                    //} else {
                         //this.restart = true;
                         // reward_label = 'Try Again!';
-                        display = "Oops! That's not the right goal!<br><br> " +
-                            '<I><span style="color #707070">Press enter to try again</span></I>';
-                    }
+                        //display = "Oops! That's not the right goal!<br><br> " +
+                            //'<I><span style="color #707070">Press enter to try again</span></I>';
+                    //}
 
                     // if agent is in goal state, celebrate.//get the value, identity and on-screen label of the goal
-                goal_value = this.mdp.getStateValue(nextState[agent]['location'], agent);
-                goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
-                goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
-                this.total_points += goal_value;
-                console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
+                    goal_value = this.mdp.getStateValue(nextState[agent]['location'], agent);
+                    goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
+                    goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
+                    this.total_points += goal_value;
+                    console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
 
                 // if agent is in goal state, celebrate.
-                var celebrateGoal = (function (painter, location, agent, points, goal_display_label) {
-                    return function () {
-                        if (goal_value > 0) {
-                            painter.showReward(location, agent, '+'.concat(String(points)));
-                        } else {
-                            painter.showLoss(location, agent, ''.concat(String(points)));
+                    var celebrateGoal = (function (painter, location, agent, points, goal_display_label) {
 
-                        }
+                        return function () {
+                            if (goal_value > 0) {
+                                painter.showReward(location, agent, '+'.concat(String(points)));
+                            } else {
+                                painter.showLoss(location, agent, ''.concat(String(points)));
+
+                            }
 
 
                         var text_display = 'Goal: <span style="font-weight: bold"><span style="font-size:150%">' +
@@ -100,8 +102,9 @@ demo_responseHandlerGenerator = function (action_mapping) {
                             '</span></span>';
 
                         $('#trial_text').html(text_display);
-                    }
-                })(this.painter, nextState[agent]['location'], agent, goal_value, goal_display_label);
+                        }
+                    })(this.painter, nextState[agent]['location'], agent, goal_value, goal_display_label);
+
 
                     var th;
                     th = setTimeout(celebrateGoal, this.painter.ACTION_ANIMATION_TIME);
