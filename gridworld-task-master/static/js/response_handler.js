@@ -55,7 +55,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     if(all_goals>=this.gridworld.goals.length){
                         move_to_next_trial = true;
                     }
-                    goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
+                    //goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
                     goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
                     this.total_points += goal_value;
                     console.log("Goal: " + goal_id + ", Label: " + goal_display_label);
@@ -78,7 +78,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     
 
                 // if agent is in goal state, celebrate.
-                    var celebrateGoal = (function (painter, location, agent, points, goal_display_label) {
+                    var celebrateGoal = (function (painter, location, agent, points) {
 
                         return function () {
                             if (goal_value > 0) {
@@ -91,7 +91,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
                             var text_display = 'Goal: <span style="font-weight: bold"><span style="font-size:150%">' +
                                 '<span style="color:' + painter.AGENT_COLORS['agent1'] +'">' +
-                                goal_display_label +'</span></span></span><br>Points won: <span style="color:' +
+                                 '</span></span></span><br>Points won: <span style="color:' +
                                 painter.AGENT_COLORS['agent1'] +'"><span style="font-size:150%">' +
                                 '<span style="font-weight: bold">' + String(points) + '</span></span></span><br> ' +
                                 '<span style="font-style: italic"><span style="color: #707070">Press enter to continue' +
@@ -99,7 +99,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
                             $('#trial_text').html(text_display);
                         }
-                    })(this.painter, nextState[agent]['location'], agent, goal_value, goal_display_label);
+                    })(this.painter, nextState[agent]['location'], agent, goal_value);
 
 
                     var th;
@@ -113,6 +113,13 @@ demo_responseHandlerGenerator = function (action_mapping) {
 
                     //console.log("check end");
                 }
+            } else {
+                var text_display = 'Which goal is the best?<span style="font-size:150%"></span><br>' +
+                    '<span style="font-size:150%"><span style="font-weight: bold"> </span></span><br> ' +
+                    '<span style="color: #707070"><span style="font-style: italic">Use the <b>a</b>, <b>s</b>,' +
+                    ' <b>d</b>, <b>f</b>, and <b>j</b>, <b>k</b>, <b>l</b>, <b>;</b> keys to move.</span></span>';
+
+                $('#trial_text').html(text_display);
             }
         }
 
