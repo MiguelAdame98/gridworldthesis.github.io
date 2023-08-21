@@ -75,7 +75,7 @@ demo_responseHandlerGenerator = function (action_mapping) {
                     //}
 
                     // if agent is in goal state, celebrate.//get the value, identity and on-screen label of the goal
-                    goal_value = this.mdp.getStateValue(nextState[agent]['location'], agent);
+                    
                     goal_display_label = this.mdp.getGoalDisplayLabel(nextState[agent]['location'], agent);
                     goal_id = this.mdp.getGoalID(nextState[agent]['location'], agent);
                     this.total_points += goal_value;
