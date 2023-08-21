@@ -160,10 +160,46 @@ var demo3 = new DemoTrial(
 	,
 	//initial text, display id, message id
 	'The wide black lines are walls. <br>These sometimes get in your way :( <br> '
-		+' <span style="color: #707070">Use the ' + instruction_set_a + ' keys to move.</span>',
+		+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
 	'#task_display',
 	'#trial_text'
 );
+
+
+
+var generate_demo4 = function(response_handler) {
+	var demo = new DemoTrial(
+		//gridworld
+		{
+			height : 5,
+			width : 5,
+			walls : [],
+			goals : [
+				{agent:'agent1', location: [1,3], label: 'A', display_label: 'A', value: 27},
+				{agent:'agent1', location: [2,4], label: 'G', display_label: 'G', value: 20},
+				{agent:'agent1', location: [3,2], label: 'U', display_label: 'U', value: 6}
+
+			],
+			tile_size: demo_tile_size,
+			agents : [{name : 'agent1'}]
+		},
+		//initial state
+		{
+			agent1 : {name : 'agent1', location : [2,2], type : 'agent'}
+		},
+		response_handler
+		,
+		//initial text, display id, message id
+		'Sometimes, the goals will say something important and have different rewards! <br><br>'
+			+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
+		'#task_display',
+		'#trial_text'
+	);
+
+	demo.colors = [tutorial_color_2]; // need some way to set the colors of the agent differently.
+	return demo;
+};
+var demo4 = generate_demo4(rh_demo_reachableGoal_1);
 
 
 
@@ -174,8 +210,13 @@ var generate_demo5 = function(response_handler) {
 			height : 5,
 			width : 5,
 			walls : [],
-			goals : [],
 			tile_size: demo_tile_size,
+			goals :  [
+				{agent:'agent1', location: [0,3], label: '1', display_label: '1', value: 7},
+				{agent:'agent1', location: [2,3], label: '4', display_label: '4', value: 20},
+				{agent:'agent1', location: [4,3], label: '7', display_label: '7', value: 26}
+
+			],
 			agents : [{name : 'agent1'}]
 		},
 		//initial state
@@ -185,8 +226,8 @@ var generate_demo5 = function(response_handler) {
 		response_handler
 		,
 		//initial text, display id, message id
-		'Sometimes, the color of the circle will change something important! <br><br>'
-			+' <span style="color: #707070">Use the ' + instruction_set_b_red +' keys to move.</span>',
+		'Sometimes, the goals will say something important and have different rewards! <br><br>'
+			+' <span style="color: #707070">Use the w,a,s,d keys to move.</span>',
 		'#task_display',
 		'#trial_text'
 	);
@@ -194,38 +235,7 @@ var generate_demo5 = function(response_handler) {
 	demo.colors = [tutorial_color_2]; // need some way to set the colors of the agent differently.
 	return demo;
 };
-var demo5 = generate_demo5(rh_demo_noReachableGoal_2);
-
-
-
-var generate_demo6 = function(response_handler) {
-	var demo = new DemoTrial(
-		//gridworld
-		{
-			height : 5,
-			width : 5,
-			walls : [],
-			tile_size: demo_tile_size,
-			goals : [{agent:'agent1', location: [4, 4], label: 'Goal', display_label: 'Goal', value: 1}],
-			agents : [{name : 'agent1'}]
-		},
-		//initial state
-		{
-			agent1 : {name : 'agent1', location : [2,2], type : 'agent'}
-		},
-		response_handler
-		,
-		//initial text, display id, message id
-		"Tricky, huh? If that wasn't enough, <br>we changed where the goal is, too. Try to reach the goal.<br> "
-			+' <span style="color: #707070">Use the ' + instruction_set_b + ' keys to move.</span>',
-		'#task_display',
-		'#trial_text'
-	);
-
-	demo.colors = [tutorial_color_2]; // need some way to set the colors of the agent differently.
-	return demo;
-};
-var demo6 = generate_demo6(rh_demo_reachableGoal_2);
+var demo5 = generate_demo5(rh_demo_reachableGoal_1);
 
 var generate_demo7 = function(response_handler) {
 	var demo = new DemoTrial(
