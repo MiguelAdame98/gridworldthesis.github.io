@@ -363,5 +363,5 @@ var endDemo = new DemoTrial(
 );
 
 
-var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo8, demo9, endDemo];
+var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo6,demo8, demo9, endDemo];
 // var demo_trials = [demo8, endDemo];
