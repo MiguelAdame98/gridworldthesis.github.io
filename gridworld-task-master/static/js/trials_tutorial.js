@@ -73,8 +73,8 @@ var demo_tile_size = 85;
 var demo0 = new DemoTrial(
 	//gridworld
 	{
-		height : 5,
-		width : 5,
+		height : 6,
+		width : 6,
 		walls : [],
 		goals : [],
 		tile_size: demo_tile_size,
@@ -96,8 +96,8 @@ var demo0 = new DemoTrial(
 var demo1 = new DemoTrial(
 	//gridworld
 	{
-		height : 5,
-		width : 5,
+		height : 6,
+		width : 6,
 		walls : [[1,2,'down'],[1,1,'up'],
 		[2, 2, 'down'], [2, 1, 'up']],
 		goals : [],
@@ -119,8 +119,8 @@ var demo1 = new DemoTrial(
 var demo2 = new DemoTrial(
 	//gridworld
 	{
-		height : 5,
-		width : 5,
+		height : 6,
+		width : 6,
 		walls : [],
 		tile_size: demo_tile_size,
 		goals : [{agent:'agent1', location: [4,4], label: 'Goal', display_label: 'Goal', value: 1}],
@@ -144,8 +144,8 @@ var demo2 = new DemoTrial(
 var demo3 = new DemoTrial(
 	//gridworld
 	{
-		height : 5,
-		width : 5,
+		height : 6,
+		width : 6,
 		walls : [[0,0,'right'],[1,0,'left'],[0,1,'right'],[1,1,'left'],//[0,2,'right'],[1,2,'left'],
 				 [2,2,'down'],[2,1,'up']],
 		tile_size: demo_tile_size,
@@ -171,8 +171,8 @@ var generate_demo4 = function(response_handler) {
 	var demo = new DemoTrial(
 		//gridworld
 		{
-			height : 5,
-			width : 5,
+			height : 6,
+			width : 6,
 			walls : [],
 			goals : [
 				{agent:'agent1', location: [1,3], label: 'A', display_label: 'A', value: 27},
@@ -207,8 +207,8 @@ var generate_demo5 = function(response_handler) {
 	var demo = new DemoTrial(
 		//gridworld
 		{
-			height : 5,
-			width : 5,
+			height : 6,
+			width : 6,
 			walls : [],
 			tile_size: demo_tile_size,
 			goals :  [
@@ -237,15 +237,15 @@ var generate_demo5 = function(response_handler) {
 };
 var demo5 = generate_demo5(rh_demo_reachableGoal_1);
 
-var generate_demo7 = function(response_handler) {
+var generate_demo6 = function(response_handler) {
 	var demo = new DemoTrial(
 		//gridworld
 		{
-			height: 5,
-			width: 5,
-			walls: [],
-			//walls: [[0, 0, 'right'], [1, 0, 'left'], [0, 1, 'right'], [1, 1, 'left'],//[0,2,'right'],[1,2,'left'],
-				//[2, 2, 'down'], [2, 1, 'up']],
+			height: 6,
+			width: 6,
+			//walls: [],
+			walls: [[0, 0, 'right'], [1, 0, 'left'], [0, 1, 'right'], [1, 1, 'left'],[0,2,'right'],[1,2,'left'],
+				[2, 2, 'down'], [2, 1, 'up']],
 			tile_size: demo_tile_size,
 			goals: [{agent: 'agent1', location: [4, 0], label: 'Goal', display_label: 'Goal', value: 1}],
 			agents: [{name: 'agent1'}]
@@ -266,14 +266,14 @@ var generate_demo7 = function(response_handler) {
 	return demo;
 };
 
-var demo7 = generate_demo7(rh_demo_reachableGoal_1);
+var demo6 = generate_demo6(rh_demo_reachableGoal_1);
 
 var generate_demo8 = function(response_handler) {
 	var demo = new DemoTrial(
 		//gridworld
 		{
-			height: 5,
-			width: 5,
+			height: 6,
+			width: 6,
 			walls: [[1,2,'down'],[1,1,'up'],
 				[2, 2, 'down'], [2, 1, 'up']],
 			tile_size: demo_tile_size,
@@ -363,5 +363,5 @@ var endDemo = new DemoTrial(
 );
 
 
-var demo_trials = [demo0,demo1,demo2,demo8, demo9, endDemo];
+var demo_trials = [demo0,demo1,demo2,demo4,demo5,demo8, demo9, endDemo];
 // var demo_trials = [demo8, endDemo];
